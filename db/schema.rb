@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019190531) do
+ActiveRecord::Schema.define(version: 20171022163434) do
 
   create_table "transfers", force: :cascade do |t|
     t.integer "user_id"
@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20171019190531) do
     t.date "date_of_birth", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "password_digest"
   end
 
 end

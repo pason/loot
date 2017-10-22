@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-
+  has_secure_password
+  
   has_many :transfers, dependent: :destroy
 
   validates :first_name, length: { maximum: 20 }, presence: true

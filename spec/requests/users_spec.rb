@@ -36,7 +36,10 @@ RSpec.describe 'users API', type: :request do
     let(:valid_attributes) do { first_name: 'Olivier', 
                                 last_name: 'Jack',
                                 address_line_1: 'New Castlle 1',
-                                date_of_birth: '1993-01-01' } 
+                                date_of_birth: '1993-01-01',
+                                password: '123456',
+                                password_confirmation: '123456'
+                              } 
     end
 
     context 'when the request is valid' do
@@ -61,7 +64,7 @@ RSpec.describe 'users API', type: :request do
 
       it 'returns a validation failure message' do
         expect(response.body)
-          .to match(/Validation failed: Last name can't be blank/)
+          .to match(/Validation failed: Password can't be blank/)
       end
     end
   end
