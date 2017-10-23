@@ -1,5 +1,5 @@
 class TransfersController < ApplicationController
-	before_action :set_user
+  before_action :set_and_authenticate_user
   before_action :set_transfer, only: [:show, :update, :destroy]
 
   # GET /users/:user_id/transfers
@@ -37,8 +37,9 @@ class TransfersController < ApplicationController
     							:country_code_from, :country_code_to)
   end
 
-  def set_user
+  def set_and_authenticate_user
     @user = User.find(params[:user_id])
+    unauthorized_entity(@user) if @user != current_user
   end
 
   def set_transfer

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include Authenticatable
+
   has_secure_password
   
   has_many :transfers, dependent: :destroy
